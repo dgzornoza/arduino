@@ -82,7 +82,7 @@ See LICENSE.txt for details
 #define SIMPLE_LED_PIN 13
 
 // keypad leds
-#define USE_KEYPAD_LEDS true
+#define USE_KEYPAD_LEDS false
 #define KEYPAD_LED_PIN_UP A0
 #define KEYPAD_LED_PIN_RIGHT A3
 #define KEYPAD_LED_PIN_DOWN A2
@@ -146,11 +146,11 @@ See LICENSE.txt for details
 #define BS_ANALOG_PIN A7
 
 // input values for each key pressed (0 if key doesn't exist)
-#define BS_ANALOG_VALUE_UP 512
-#define BS_ANALOG_VALUE_RIGHT 860
-#define BS_ANALOG_VALUE_DOWN 769
-#define BS_ANALOG_VALUE_LEFT 683
-#define BS_ANALOG_VALUE_GO 810
+#define BS_ANALOG_VALUE_UP 764
+#define BS_ANALOG_VALUE_RIGHT 329
+#define BS_ANALOG_VALUE_DOWN 516
+#define BS_ANALOG_VALUE_LEFT 651
+#define BS_ANALOG_VALUE_GO 879
 #define BS_ANALOG_VALUE_RESET 0
 
 #endif // BUTTONS_ANALOG

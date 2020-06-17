@@ -45,10 +45,17 @@ void ButtonSetAnalog::init()
 {
     ButtonSet::init();
     pinMode(_config->pin_button_set, (_config->pullup ? INPUT_PULLUP : INPUT));
-    _last_button = BUTTON_NONE;
+    _last_button = BUTTON_NONE;    
+
+    Serial.begin(115200);
 }
 
 //////////////////////////////////////////////////////////////////////
+void _log(int16_t value, int16_t minor_diff, int16_t diff, const char* button) {
+    Serial.print("value:");Serial.print(value);Serial.println();
+    Serial.print("minor_diff:");Serial.print(minor_diff);Serial.println();
+    Serial.print(button);Serial.print(diff);Serial.println();  
+}
 
 void ButtonSetAnalog::scanButtons()
 {
@@ -69,28 +76,28 @@ void ButtonSetAnalog::scanButtons()
     if (diff < minor_diff)
     {
         minor_diff = diff;
-        button = BUTTON_RIGHT;
+        button = BUTTON_LEFT;
     }
 
     diff = abs(value - _config->value_button_down);
     if (diff < minor_diff)
     {
         minor_diff = diff;
-        button = BUTTON_DOWN;
+        button = BUTTON_GO;
     }
 
     diff = abs(value - _config->value_button_left);
     if (diff < minor_diff)
     {
         minor_diff = diff;
-        button = BUTTON_LEFT;
+        button = BUTTON_RIGHT;
     }
 
     diff = abs(value - _config->value_button_go);
     if (diff < minor_diff)
     {
         minor_diff = diff;
-        button = BUTTON_GO;
+        button = BUTTON_DOWN;
     }
 
     diff = abs(value - _config->value_button_reset);

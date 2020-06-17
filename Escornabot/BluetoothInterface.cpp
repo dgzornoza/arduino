@@ -184,7 +184,7 @@ void BluetoothInterface::ProgramReset()
 void BluetoothInterface::ProgramAborted(uint8_t executed, uint8_t total)
 {
     _config->serial->print(SI_PROGRAM);
-    _config->serial->print("ABORTED ");
+    _config->serial->print("ABORTED");
     _config->serial->print(executed);
     _config->serial->print("/");
     _config->serial->print(total);
